@@ -38,6 +38,22 @@ const ytSubscribers = document.getElementById("ytSubscribers");
 const ytViews = document.getElementById("ytViews");
 const ytVideos = document.getElementById("ytVideos");
 
+// Social button redirects
+const youtubeBtn = document.querySelector(".social-btn.youtube");
+const tiktokBtn = document.querySelector(".social-btn.tiktok");
+
+if (youtubeBtn) {
+  youtubeBtn.addEventListener("click", function () {
+    window.open("https://www.youtube.com/@MoguIazo", "_blank");
+  });
+}
+
+if (tiktokBtn) {
+  tiktokBtn.addEventListener("click", function () {
+    window.open("https://www.tiktok.com/@mogulazo4", "_blank");
+  });
+}
+
 const suggestionForm = document.getElementById("suggestionForm");
 const suggestionEmail = document.getElementById("suggestionEmail");
 const suggestionText = document.getElementById("suggestionText");
