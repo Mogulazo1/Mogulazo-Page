@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mogulazo - contenido de YouTube y TikTok con humor y comunidad." />
+  <title>Mogulazo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar"></header>
+
+  <main>
+    <section class="hero-card" id="inicio">
+      <div class="hero-social social-actions" id="redes">
+        <button type="button" class="social-btn youtube" aria-label="YouTube">YouTube</button>
+        <button type="button" class="social-btn tiktok" aria-label="TikTok">TikTok</button>
+        <a class="social-btn instagram" id="instagramPrank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Instagram</a>
+      </div>
+
+      <div class="profile-wrap">
+        <img
+          class="profile-image"
+          src="./Foto de perfil Mogulazo.jpg"
+          alt="Foto de perfil de Mogulazo"
+        />
+      </div>
+
+      <h1>MOGULAZO</h1>
+    </section>
+
+    <section class="about-card" id="sobre-mogulazo">
+      <h2>Y este quien es?</h2>
+      <p>Soy Mogulazo, creador de contenido Loquendo del automovilismo general, suelo subir videos de iRacing y BeamNG, pero nunca tengo ideas decentes para hacerles video (Por tal razón subo videos cada dias sin que me baño), por eso se me ocurrio hacer esta pagina para promocionar mis cuentas y dar la posibilidad de recibir ideas de cualquiera.</p>
+    </section>
+
+    <section class="suggestion-card" id="sugerir-reto">
+      <h2>Sugerir idea</h2>
+      <p class="suggestion-subtitle">Deja tu correo y una idea de video, lo que quieras (maximo 5000 caracteres).</p>
+
+      <form id="suggestionForm" class="suggestion-form">
+        <label for="suggestionEmail">Correo electronico</label>
+        <input id="suggestionEmail" name="email" type="email" required placeholder="tu-correo@ejemplo.com" />
+
+        <label for="suggestionText">Tu sugerencia</label>
+        <textarea id="suggestionText" name="suggestion" maxlength="5000" required placeholder="Escriba su sugerencia aqui."></textarea>
+        <p class="char-counter"><span id="charCount">0</span>/5000</p>
+
+        <button type="submit" class="social-btn youtube">Enviar sugerencia</button>
+        <p class="form-status" id="suggestionStatus" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="youtube-card" id="youtube-reciente">
+      <h2>Lo ultimo en YouTube</h2>
+
+      <div class="youtube-grid">
+        <article class="yt-latest">
+          <h3>Ultimo video</h3>
+          <div class="yt-frame-wrap">
+            <iframe
+              id="latestYoutubeEmbed"
+              src="https://www.youtube.com/embed"
+              title="Ultimo video de YouTube"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="yt-title" id="latestYoutubeTitle">Aun no cargado</p>
+          <p class="yt-meta" id="latestYoutubeDate">Publicacion pendiente</p>
+        </article>
+
+        <article class="yt-stats">
+          <h3>Datos del canal</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Suscriptores</span>
+              <span class="stat-value" id="ytSubscribers">-</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Vistas</span>
+              <span class="stat-value" id="ytViews">-</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Videos</span>
+              <span class="stat-value" id="ytVideos">-</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-card" id="desarrollador" hidden>
+      <h2>Opciones de desarrollador</h2>
+      <p class="suggestion-subtitle" id="adminWarning">Estas accediendo a un entorno de desarrollador, por favor, confirma que eres uno introduciendo las credenciales correctas</p>
+
+      <form class="admin-login-form" id="adminLoginForm" autocomplete="on">
+        <label for="adminLoginEmail">Correo permitido</label>
+        <input id="adminLoginEmail" type="email" required placeholder="Tu correo" />
+
+        <label for="adminLoginPassword">Contrasena</label>
+        <input id="adminLoginPassword" type="password" required placeholder="Tu contrasena" />
+
+        <button type="submit" class="social-btn tiktok" id="adminLoginBtn">Verificar acceso</button>
+      </form>
+
+      <div class="admin-actions">
+        <button type="button" class="social-btn youtube" id="adminLogoutBtn" disabled>Cerrar sesion</button>
+      </div>
+
+      <p class="form-status" id="adminStatus" aria-live="polite"></p>
+      <h3 class="admin-subtitle">Solicitudes por revisar</h3>
+      <div class="admin-list" id="adminList"></div>
+
+      <section class="reviewed-block" id="reviewedBlock">
+        <div class="reviewed-head">
+          <h3 class="admin-subtitle">Solicitudes ya revisadas</h3>
+          <button type="button" class="social-btn tiktok" id="reviewedToggleBtn" disabled>Ver completadas</button>
+        </div>
+
+        <p class="form-status" id="reviewedStatus" aria-live="polite"></p>
+        <div class="admin-list" id="reviewedList"></div>
+      </section>
+    </section>
+
+  </main>
+
+  <div class="prank-toast" id="prankToast" role="status" aria-live="polite">Mentira, no tengo Instagram</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
